@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <meta name="description" content="TLINH Tarot — a quiet space to listen inward, explore the cards, and meet your questions with curiosity.">
+  <title>TLINH Tarot — Some answers are already within you</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="deck.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Bỏ qua điều hướng</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="TLINH Tarot home">
+      <span class="brand-mark" aria-hidden="true">☾</span><span>TLINH<span class="brand-sub">TAROT</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="primaryNav" data-i18n-aria="menu">Mở menu</button>
+    <nav id="primaryNav" class="nav-links" aria-label="Primary navigation">
+      <a href="#home" data-i18n="navHome">Trang chủ</a>
+      <a href="#reading" data-i18n="navReading">Trải bài</a>
+      <a href="#library" data-i18n="navLibrary">Thư viện</a>
+      <a href="#journal" data-i18n="navJournal">Nhật ký</a>
+      <a href="#learning" data-i18n="navLearning">Học Tarot</a>
+      <a href="#about" data-i18n="navAbout">Về TLINH</a>
+    </nav>
+    <div class="language-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero-scene" aria-hidden="true">
+        <div class="moon-orb"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <span class="scene-star star-a">✦</span><span class="scene-star star-b">✧</span><span class="scene-star star-c">·</span>
+        <div class="hero-card"><span>✧</span><i>XVII</i></div>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n="heroEyebrow">Một khoảng lặng cho riêng bạn</p>
+        <h1 id="heroTitle"><span data-i18n="heroLineOne">NHỮNG CÂU TRẢ LỜI</span><br><em data-i18n="heroLineTwo">NẰM TRONG BẠN.</em></h1>
+        <p class="hero-copy" data-i18n="heroCopy">Dừng lại một chút. Lắng nghe điều trái tim bạn chưa thể gọi tên.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#reading" data-i18n="begin">Bắt đầu trải bài <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#library" data-i18n="explore">Khám phá các lá bài</a>
+        </div>
+        <p class="tagline" data-i18n="tagline">“Có những câu trả lời vốn đã nằm trong bạn.”</p>
+      </div>
+      <a class="scroll-cue" href="#reading" aria-label="Scroll to reading"><span></span><span data-i18n="scroll">LẮNG NGHE</span></a>
+    </section>
+
+    <section class="section reading-section" id="reading" aria-labelledby="readingTitle">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="readingEyebrow">Khoảnh khắc hiện tại</p>
+        <h2 id="readingTitle" data-i18n="readingTitle">Hãy đặt một câu hỏi.</h2>
+        <p data-i18n="readingIntro">Không cần tìm câu trả lời hoàn hảo. Chỉ cần bắt đầu bằng điều đang ở trong lòng bạn.</p>
+      </div>
+      <div class="reading-form">
+        <label for="question" data-i18n="questionLabel">Câu hỏi của bạn <span>(không bắt buộc)</span></label>
+        <textarea id="question" maxlength="500" rows="2" data-i18n-placeholder="questionPlaceholder" placeholder="Điều gì đang cần sự chú tâm của mình lúc này?"></textarea>
+        <div class="form-grid">
+          <div class="field">
+            <label for="topic" data-i18n="topicLabel">Chủ đề</label>
+            <select id="topic">
+              <option value="general" data-i18n="topicGeneral">Tổng quan</option>
+              <option value="love" data-i18n="topicLove">Tình yêu & mối quan hệ</option>
+              <option value="work" data-i18n="topicWork">Công việc & mục tiêu</option>
+              <option value="finance" data-i18n="topicFinance">Tài chính & nguồn lực</option>
+              <option value="growth" data-i18n="topicGrowth">Phát triển bản thân</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="spreadType" data-i18n="spreadLabel">Kiểu trải bài</label>
+            <select id="spreadType">
+              <option value="one" data-i18n="spreadOne">Một lá · Thông điệp cốt lõi</option>
+              <option value="three" selected data-i18n="spreadThree">Ba lá · Quá khứ / Hiện tại / Khả năng</option>
+              <option value="five" data-i18n="spreadFive">Năm lá · Nhìn sâu hơn</option>
+              <option value="seven" data-i18n="spreadSeven">Bảy lá · Toàn cảnh</option>
+              <option value="celtic" data-i18n="spreadCeltic">Celtic Cross · Mười lá</option>
+            </select>
+          </div>
+        </div>
+        <div class="field variant-field" id="variantField" hidden>
+          <label for="spreadVariant" data-i18n="variantLabel">Góc nhìn ba lá</label>
+          <select id="spreadVariant">
+            <option value="timeline" data-i18n="variantTimeline">Quá khứ · Hiện tại · Khả năng</option>
+            <option value="advice" data-i18n="variantAdvice">Tình huống · Thách thức · Lời khuyên</option>
+            <option value="relationship" data-i18n="variantRelationship">Tôi · Người kia · Mối quan hệ</option>
+            <option value="mind" data-i18n="variantMind">Suy nghĩ · Cảm xúc · Hành động</option>
+          </select>
+        </div>
+        <div class="reading-actions">
+          <button class="button button-outline" id="shuffleButton" type="button"><span aria-hidden="true">⤨</span> <span data-i18n="shuffle">Xáo bài</span></button>
+          <button class="button button-gold" id="drawButton" type="button" data-i18n="draw">Rút ba lá</button>
+        </div>
+        <p class="privacy-note"><span aria-hidden="true">◈</span> <span data-i18n="localNotice">Câu hỏi và trải bài của bạn chỉ được lưu trên trình duyệt này.</span></p>
+      </div>
+      <div id="readingStatus" class="status-line" role="status" aria-live="polite"></div>
+      <div id="spread" class="spread-grid" aria-label="Your tarot spread"></div>
+      <div class="reading-result" id="readingResult" hidden>
+        <div class="result-rule"><span>✧</span></div>
+        <p class="eyebrow" data-i18n="interpretationEyebrow">Một tấm gương, không phải lời phán quyết</p>
+        <h3 data-i18n="interpretationTitle">Bức tranh trải bài</h3>
+        <div id="interpretation" class="interpretation"></div>
+        <div class="result-actions">
+          <button class="button button-outline" id="saveReadingButton" type="button" data-i18n="saveReading">Lưu vào nhật ký</button>
+          <button class="button button-outline" id="deepButton" type="button" data-i18n="deepButton">✧ Giải mã sâu hơn với ChatGPT</button>
+        </div>
+        <p class="small-note" data-i18n="deepNote">Có những tầng ý nghĩa không thể khám phá chỉ bằng một lần rút bài.</p>
+      </div>
+    </section>
+
+    <section class="section library-section" id="library" aria-labelledby="libraryTitle">
+      <div class="section-heading section-heading-row">
+        <div><p class="eyebrow" data-i18n="libraryEyebrow">Biểu tượng & câu chuyện</p><h2 id="libraryTitle" data-i18n="libraryTitle">Thư viện Tarot</h2></div>
+        <p data-i18n="libraryIntro">Bảy mươi tám tấm gương. Mỗi lá bài mở ra một góc nhìn riêng.</p>
+      </div>
+      <div class="library-tools">
+        <label class="search-wrap"><span class="visually-hidden" data-i18n="searchLabel">Tìm lá bài</span><span aria-hidden="true">⌕</span><input id="librarySearch" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Tìm theo tên, biểu tượng hoặc từ khóa"></label>
+        <select id="arcanaFilter" aria-label="Filter by arcana"><option value="all" data-i18n="filterAll">Tất cả lá bài</option><option value="major" data-i18n="filterMajor">Ẩn chính</option><option value="minor" data-i18n="filterMinor">Ẩn phụ</option></select>
+        <select id="suitFilter" aria-label="Filter by suit"><option value="all" data-i18n="filterSuitAll">Tất cả bộ bài</option><option value="wands" data-i18n="suitWands">Gậy</option><option value="cups" data-i18n="suitCups">Cốc</option><option value="swords" data-i18n="suitSwords">Kiếm</option><option value="pentacles" data-i18n="suitPentacles">Tiền</option></select>
+        <button class="favorite-filter" id="favoritesOnly" type="button" aria-pressed="false" data-i18n="favoritesOnly">♡ Yêu thích</button>
+      </div>
+      <div id="libraryCount" class="library-count" aria-live="polite"></div>
+      <div id="libraryGrid" class="library-grid"></div>
+    </section>
+
+    <section class="section journal-section" id="journal" aria-labelledby="journalTitle">
+      <div class="section-heading section-heading-row">
+        <div><p class="eyebrow" data-i18n="journalEyebrow">Những điều bạn muốn nhớ</p><h2 id="journalTitle" data-i18n="journalTitle">Nhật ký Tarot</h2></div>
+        <p data-i18n="journalIntro">Một nơi riêng tư để lưu lại câu hỏi hôm nay và những gì dần sáng tỏ.</p>
+      </div>
+      <p class="privacy-banner"><span aria-hidden="true">◈</span> <span data-i18n="journalPrivacy">Dữ liệu nhật ký được lưu trên trình duyệt hiện tại, không gửi ra ngoài.</span></p>
+      <div class="journal-tools"><label class="search-wrap"><span class="visually-hidden" data-i18n="journalSearchLabel">Tìm trong nhật ký</span><span aria-hidden="true">⌕</span><input id="journalSearch" type="search" data-i18n-placeholder="journalSearchPlaceholder" placeholder="Tìm câu hỏi, ghi chú hoặc lá bài"></label>
+        <button class="button button-outline" id="exportButton" type="button" data-i18n="export">Xuất JSON</button><button class="button button-outline" id="importButton" type="button" data-i18n="import">Nhập JSON</button><input id="importFile" class="visually-hidden" type="file" accept="application/json,.json" aria-label="Import journal JSON">
+      </div>
+      <div id="journalList" class="journal-list"></div>
+    </section>
+
+    <section class="section learning-section" id="learning" aria-labelledby="learningTitle">
+      <div class="section-heading"><p class="eyebrow" data-i18n="learningEyebrow">Bắt đầu từ sự tò mò</p><h2 id="learningTitle" data-i18n="learningTitle">Học cách lắng nghe lá bài</h2><p data-i18n="learningIntro">Tarot không cần một công thức bí mật. Hãy nhìn hình ảnh, nhận ra cảm xúc, rồi để câu hỏi dẫn đường.</p></div>
+      <div class="learning-grid" id="learningGrid"></div>
+    </section>
+
+    <section class="section about-section" id="about" aria-labelledby="aboutTitle">
+      <div class="about-mark" aria-hidden="true">☾</div>
+      <p class="eyebrow" data-i18n="aboutEyebrow">Một không gian để lắng nghe</p>
+      <h2 id="aboutTitle">TLINH</h2>
+      <div class="about-copy" id="aboutCopy"></div>
+      <p class="tagline" data-i18n="tagline">“Có những câu trả lời vốn đã nằm trong bạn.”</p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">☾</span><span>TLINH<span class="brand-sub">TAROT</span></span></a><p data-i18n="footerNote">Tarot là công cụ chiêm nghiệm. Những lá bài không quyết định con đường của bạn.</p><a href="#home" data-i18n="backTop">Trở về đầu trang ↑</a></footer>
+
+  <dialog id="cardDialog" class="modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><div id="cardDetail"></div></dialog>
+  <dialog id="promptDialog" class="modal prompt-modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><p class="eyebrow" data-i18n="promptEyebrow">Cuộc trò chuyện tiếp theo là của bạn</p><h2 data-i18n="promptTitle">Mang trải bài theo cùng</h2><p data-i18n="promptDescription">Prompt được tạo từ những lá bài vừa rút. TLINH không gửi dữ liệu của bạn đi đâu cả.</p><textarea id="generatedPrompt" rows="14" readonly aria-label="Generated ChatGPT prompt"></textarea><div class="prompt-actions"><button class="button button-gold" id="copyPromptButton" type="button" data-i18n="copyPrompt">Sao chép prompt</button><a class="button button-outline" id="openChatGPT" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" data-i18n="openChatGPT">Mở ChatGPT ↗</a></div><p class="small-note" id="copyStatus" role="status" aria-live="polite"></p></dialog>
+  <dialog id="journalDialog" class="modal journal-modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><p class="eyebrow" data-i18n="editEntry">Chỉnh sửa ghi chú</p><h2 id="journalEditTitle"></h2><label for="entryMood" data-i18n="moodLabel">Cảm xúc lúc này</label><select id="entryMood"><option value="" data-i18n="moodChoose">Chọn cảm xúc</option><option value="calm" data-i18n="moodCalm">Bình yên</option><option value="curious" data-i18n="moodCurious">Tò mò</option><option value="uncertain" data-i18n="moodUncertain">Chưa chắc chắn</option><option value="hopeful" data-i18n="moodHopeful">Hy vọng</option><option value="heavy" data-i18n="moodHeavy">Nặng lòng</option><option value="grateful" data-i18n="moodGrateful">Biết ơn</option></select><label for="entryNote" data-i18n="noteLabel">Ghi chú của bạn</label><textarea id="entryNote" rows="5" maxlength="3000"></textarea><button class="button button-gold" id="saveEntryButton" type="button" data-i18n="saveChanges">Lưu thay đổi</button><p class="small-note" id="journalDialogStatus" role="status" aria-live="polite"></p></dialog>
+</body>
+</html>
